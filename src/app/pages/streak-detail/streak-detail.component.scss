@@ -1,0 +1,67 @@
+// .container {
+//   display: flex;
+//   gap: 10px;
+//   // background-color: red;
+// }
+// .progess-group {
+//   width: 300px;
+//   padding: 50px 0;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+.circular-progress {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.5s;
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  // background-color: #535c68;
+}
+
+.course-value {
+  position: relative;
+}
+
+.text {
+  margin-top: 18px;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: white;
+}
+
+
+.progress{
+  width:200px;
+  height:30px;
+  background-color:red;
+}
+
+.progress-inner{
+  width:20px;
+  height:30px;
+  background-color:green;
+}
+
+.box-dark{
+    box-shadow: -6px -6px 10px rgba(255,255,255,0.05),
+                 6px  6px 10px 1px rgba(0,0,0,0.7);
+}
+
+.box-light{
+  box-shadow: 6px 6px 10px -1px rgba(255,255,255,0.15),
+  -6px -6px 10px -1px rgba(0,0,0,0.15);
+}

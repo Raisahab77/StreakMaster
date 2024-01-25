@@ -1,0 +1,38 @@
+<!-- <h1 class="text-full text-white">Todos Works</h1> -->
+<div class="flex justify-center">
+    <div class="min-[500px]:w-[450px] w-full">
+        <div class="w-full">
+            <input class="w-[calc(100%-80px)] px-5 py-3.5 rounded-tl-full rounded-bl-full outline-none dark:bg-[#000000cc] bg-[#e4e4e4e2] dark:placeholder:text-gray-200 dark:text-gray-200 placeholder:text-black text-black" type="text" placeholder="Add Your new Todo" [(ngModel)]="todo">
+            <button [disabled]="todo==''" (click)="addTodo()" class="dark:text-black text-white bg-[#1fdf64] w-[80px] py-3.5 rounded-tr-full rounded-br-full" [ngClass]="{'cursor-not-allowed':todo==''}"><i class="fa-solid fa-plus"></i></button>
+        </div>
+    
+    
+        <div class="w-full mt-4 space-y-2">
+            <div *ngFor="let todo of todos" class="w-full h-full flex justify-between items-center p-3 dark:text-white dark:bg-[#000000c5] bg-[#ffffffc5] text-black rounded-md" [ngClass]="{'completed-todo':todo.status === 'completed'}">
+                <div class="flex items-center">
+                    <div class="">
+                        <!-- <input (click)="markAsCompleted(todo.id)" type="checkbox" [checked]="todo.status === 'completed'" [disabled]="todo.status === 'completed'"> -->
+                        <div *ngIf="todo.status !== 'completed'" (click)="markAsCompleted(todo.id)" class="w-7 h-7 rounded-full border-2 dark:border-white border-black"></div>
+                        <img *ngIf="todo.status === 'completed'" class="w-7 h-7" src="../../../assets/images/check.png" alt="">
+                    </div>
+                    <div class="px-4">
+                        <span class="text-start">{{todo.todo}}</span>
+                    </div>
+                </div>
+                <button class="float-right">
+                    <i (click)="deleteTodo(todo.id)" class="fa-solid fa-trash text-sm  cursor-pointer"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="flex justify-center">
+    <div class="sm:w-[80%] w-full flex flex-wrap justify-center gap-5 ">
+        <div *ngFor="let todo of todos" class="lg:w-1/5 md:w-1/4 sm:w-1/3 max-sm:w-[90%] max-w-[400px] bg-green-200 grow p-4 rounded-md">
+            <div routerLink="/todo/{{todo.id}}" class="w-full">
+                <app-todos-card></app-todos-card>
+            </div>
+        </div>
+    </div>
+</div> -->

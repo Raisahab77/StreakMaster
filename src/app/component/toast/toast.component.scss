@@ -1,23 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.custom-dialog-container .mat-dialog-container {
-    /* add your styles */
-    padding: 0px;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;
-}
-
 #toast-box{
     position: absolute;
-    top: 30px;
+    bottom: 30px;
     right: 30px;
     width: fit-content;
     /* background-color: blue; */
-    overflow-x: hidden;
 }
 
 .toast{

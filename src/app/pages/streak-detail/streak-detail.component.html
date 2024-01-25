@@ -1,0 +1,58 @@
+<div class="sm:ml-10 ml-2">
+    <h1 class="text-4xl font-bold dark:text-white">{{streakData.streak_name}}</h1>
+</div>
+
+<div class="mt-8 sm:mx-10 max-sm:flex justify-center">
+    <div class="md:flex max-md:flex-col justify-between gap-5">
+
+        <div class="">
+            <div class="progess-group">
+                <div class="circular-progress dark:before:bg-neutral-700 before:bg-slate-100">
+                    <span class="text-4xl dark:text-white relative">{{streakData.current_score}}<span *ngIf="streakData.goal">/{{streakData.goal}}</span> </span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="text-[#1fdf64] flex max-sm:flex-col gap-2 mt-6 max-sm:text-center">
+            <div class="w-52 h-24 justify-between items-center dark:bg-black bg-white rounded-md flex p-5 box-dark">
+                <div>
+                    <h1>Current Score</h1>
+                    <span class="dark:text-white text-xl font-bold pl-3">{{streakData.current_score}}</span>
+                </div>
+                <img class="w-12 h-12 rounded-full" src="../../../assets/images/bar-chart.png" alt="">
+            </div>
+            <div class="w-52 h-24 justify-between items-center dark:bg-black bg-white rounded-md flex p-5 box-dark">
+                <div>
+                    <h1>High Score</h1>
+                    <span class="dark:text-white text-xl font-bold pl-3">{{streakData.high_score}}</span>
+                </div>
+                <img class="w-12 h-12 rounded-full" src="../../../assets/images/good-feedback.png" alt="">
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<div class="w-full flex max-sm:flex-col justify-start items-center gap-4 mt-6 sm:ml-10">
+
+    <button (click)="resetStreak(streakData.id)" class="dark:text-black dark:bg-white text-white bg-black font-bold px-8 py-2 rounded-md transition-all delay-100 max-sm:w-[80%]">
+        Reset Streak
+    </button>
+
+    <button [disabled]="currentDate == streakData.last_mark_date" (click)="completeDailyStreak(streakData.id)" class="text-black bg-[#1fdf64] px-8 py-2 rounded-md transition-all delay-100 max-sm:w-[80%] font-bold">
+        Task Complete
+    </button>
+
+</div>
+
+<hr class="dark:border-t-2 dark dark:border-white my-4">
+<div class="sm:ml-10 ml-2">
+    <h1 class="dark:text-white text-3xl font-bold">Achievements and Rewards</h1>
+    <div class="mt-5 flex max-sm:justify-center flex-wrap gap-5">
+        <img class="w-48 h-60" *ngIf="streakData.current_score>0" src="../../../assets/images/1x.png" alt="">
+        <img class="w-48 h-60" *ngIf="streakData.current_score>4" src="../../../assets/images/5x.png" alt="">
+        <img class="w-48 h-60" *ngIf="streakData.current_score==streakData.goal" src="../../../assets/images/complete.png" alt="">
+    </div>
+</div>
+
+<!-- <div class="container"></div> -->

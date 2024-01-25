@@ -1,0 +1,29 @@
+<!-- <h1 class="text-4xl text-white">Todos Works</h1> -->
+<div class="flex justify-center">
+    <div class="min-[500px]:w-[450px] w-full">
+        <div class="w-full flex justify-center">
+            <button (click)="addStreakPopup()" class="dark:text-black text-white bg-[#1fdf64] py-3 px-8 rounded-md font-bold"><i class="fa-solid fa-plus"></i> Add Streak</button>
+        </div>
+    
+    
+        <div class="w-full mt-4 space-y-2">
+            <div routerLink="/streak-dtl/{{data.id}}" *ngFor="let data of streakData" class="w-full h-full flex justify-between items-center p-3 dark:text-white dark:bg-[#000000c5] bg-[#ffffffc5] text-black rounded-md cursor-pointer">
+                <div class="flex items-center">
+                    <!-- <div class="">
+                        <input type="checkbox">
+                    </div> -->
+                    <div class="px-4">
+                        <span class="text-start">{{data.streak_name}}</span>
+                    </div>
+
+                    <div class="px-4">
+                        <span class="text-start">{{data.current_score}}<span *ngIf="data.streak_type=='finite'">/{{data.goal}}</span> </span>
+                    </div>
+                </div>
+                <button class="float-right" (click)="deleteStreak(data.id)">
+                    <i class="fa-solid fa-trash text-sm  cursor-pointer"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
